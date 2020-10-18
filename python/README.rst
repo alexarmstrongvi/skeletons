@@ -4,51 +4,58 @@ Python project skeleton
 Usage
 -----
 
+To setup a new project:
 
 .. code-block:: bash
 
     $ setup_py_project ProjectName
     $ setup_py_project ProjectName --subpackages 3
 
+To run the linter:
+
 .. code-block:: bash
 
+    $ pylint --generate-rcfile > current_pylintrc
     $ pylint skeletons/ tests/
+
+To glance at the documentation:
 
 .. code-block:: bash
 
     $ pydoc skeletons
-    $ pydoc -w skeletons 
     $ pydoc -b
 
-.. code-block:: bash
-
-    $ sphinx
+To generate the full documentation
 
 .. code-block:: bash
 
-    $ python -m unittest tests/
+    $ cd docs
+    $ make html
+    $ open build/html/index.html
+
+To run tests :
 
 .. code-block:: bash
 
+    $ python -m doctest skeletons/subpackage1/submodule1.py
+    $ py.test --doctest-modules skeletons
     $ pytest tests/
 
+To run the packages main script:
+
 .. code-block:: bash
 
-    $ ./skeletons/runner.py foo.bar
+    $ ./skeletons/runner.py
+    $ ./skeletons/runner.py -i data/input.json -o data/output.txt -l DEBUG
 
 References
 ----------
 * Python project structure
-   * `Real Python - "Python Application Layouts" <https://realpython.com/python-application-layouts/>`_ 
+    * `Real Python - "Python Application Layouts" <https://realpython.com/python-application-layouts/>`_ 
+* Development and debugging tools
+    * `Pylint <http://pylint.pycqa.org/en/latest/index.html>`_
+    * `Pydoc <https://docs.python.org/3/library/pydoc.html>`_
+    * Doctest
+    * Unittest
+    * Pytest
 
-* Docstring formats
-   * `Stack Overflow - "What is the standard Python docstring format?" <https://stackoverflow.com/questions/3898572/what-is-the-standard-python-docstring-format>`_ - a good overview of ReST, Google, Numpydoc, and other docstring standards
-
-* reStructuredText
-   * `Online Sphinx Editor <https://livesphinx.herokuapp.com/>`_
-   * `Online RST Editor <http://rst.ninjs.org/>`_ - Less helpful display but can convert to PDF
-   * `Sphinx RST guide <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-   * `Official User Guide <https://docutils.sourceforge.io/rst.html>`_ - Examples don't display final output
-* Project management tools
-   * `Pylint <http://pylint.pycqa.org/en/latest/index.html>`_
-   * `Pydoc <https://docs.python.org/3/library/pydoc.html>`_
